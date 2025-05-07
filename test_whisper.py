@@ -1,13 +1,15 @@
 import time
 from faster_whisper import WhisperModel
+from pathlib import Path
 
 start_time = time.time()
 
+base_dir = Path(__file__).resolve().parent
+audio_path = base_dir / 'media' / 'sing for the monent no hook 30s.mp3'
+
 model = WhisperModel("tiny.en", device="cpu", compute_type="float32")
 
-#
-# segments, info = model.transcribe("C:\\Users\\CNTT\\TestMediapipe\\media\\beauty_in_white_cutted.mp3")
-segments, info = model.transcribe("C:\\Users\\CNTT\\TestMediapipe\\Media\\sing for the monent no hook 30s.mp3")
+segments, info = model.transcribe(str(audio_path))
 
 for segment in segments:
     print(segment.text)
@@ -16,6 +18,7 @@ end_time = time.time()
 print(f"Time taken: {end_time - start_time:.2f} seconds")
 print()
 
+# Actual lyrics
 sing_for_the_moment = '''
 These ideas are, nightmares to white parents
 Whose worst fear is a child with dуed hair and who likes earrings
@@ -29,5 +32,4 @@ When he talks about, his fucking dad walking out
 Ɩf he ever saw him again he'd probablу knock him out
 '''
 print("Actual:", sing_for_the_moment)
-
 print()
