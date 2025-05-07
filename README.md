@@ -22,7 +22,7 @@ This repository contains quick tests and demos for several lightweight machine l
 - `test_detect_count.py` – Script for object detection and counting.
 - `test_mediapipe.py` – Script for facial and hand landmark detection.
 - `test_whisper.py` – Script for speech-to-text conversion.
-- `volo11n.onnx` – Lightweight ONNX model file, possibly used for brand/logo detection.
+- `yolo11n.onnx` – Lightweight ONNX model file, possibly used for brand/logo detection.
 
 ## Installation
 
