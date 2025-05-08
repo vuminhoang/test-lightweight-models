@@ -40,7 +40,11 @@ pose_connection_spec = mp_drawing.DrawingSpec(color=(80, 256, 121), thickness=2,
 hand_landmark_spec = mp_drawing.DrawingSpec(color=(121, 22, 76), thickness=2, circle_radius=1)
 hand_connection_spec = mp_drawing.DrawingSpec(color=(121, 44, 250), thickness=2, circle_radius=1)
 
-face_keypoints = [1, 33, 61, 199, 263, 291, 199]
+# 33 - 263: khóe mắt trái
+# 61 - 291: miệng
+# 468 - 473: con ngươi
+
+face_keypoints = [1, 468, 61, 199, 473, 291]
 face_point_color = (255, 0, 255)  # Màu tím
 face_point_size = 5
 
