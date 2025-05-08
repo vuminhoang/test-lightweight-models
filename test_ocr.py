@@ -1,6 +1,7 @@
 import os
 from rapidocr import RapidOCR
 
+# new config file, change recognition model to "en"
 config_path = os.path.join("models", "config_rapid_ocr.yml")
 
 def process_image_with_ocr(input_path, output_path=None):
