@@ -42,7 +42,7 @@ EngineConfig:
         gpu_id: 0
 
 Det:
-    model_path: ./models/ch_PP-OCRv3_det_infer.onnx
+    model_path: ./models/en_PP-OCRv3_det_infer.onnx
     model_dir: null
 
     limit_side_len: 736
