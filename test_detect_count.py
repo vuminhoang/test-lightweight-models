@@ -89,6 +89,6 @@ def detect_and_count(image_input, model_onnx, output_path=None, resize=True):
 
 if __name__ == "__main__":
     image_path = os.path.join('media', 'test_8.jpg')
-    output_path = os.path.join('media', 'test_8_out.png')
+    output_path = os.path.join('output', 'test_8_out.png')
     summary, _ = detect_and_count(image_path, model_onnx, output_path=output_path)
     print(f"Summary: {summary}")
