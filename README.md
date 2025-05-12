@@ -28,3 +28,17 @@ This repository contains quick tests and demos for several lightweight machine l
 
 ```bash
 pip install -r requirements.txt
+```
+
+### To run the test_whisper:
+Make sure git-lfs is installed (https://git-lfs.com)
+```bash
+git lfs install
+```
+Next:
+```bash
+cd models
+git clone https://huggingface.co/guillaumekln/faster-whisper-tiny.en
+cd models/faster-whisper-tiny.en
+git lfs pull      # pull the model.bin from huggingface into your folder
+```
