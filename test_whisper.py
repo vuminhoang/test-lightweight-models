@@ -25,12 +25,12 @@ if __name__ == "__main__":
 
     # Cần cd models -> git clone https://huggingface.co/guillaumekln/faster-whisper-tiny.en
     # sau đó cd thư mục tiny.en, git lfs pull để kéo model.bin về
-    model_path = base_dir / 'models' / 'faster-whisper-tiny.en'
+    model_path = base_dir / 'models' / 'faster-whisper-base.en'
 
     transcription = transcribe_audio(
         str(audio_path),
         model_path=str(model_path),
-        compute_type="int8"
+        compute_type="float32"
     )
 
     print(transcription)
