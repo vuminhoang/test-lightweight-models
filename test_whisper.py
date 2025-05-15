@@ -20,28 +20,9 @@ def transcribe_audio(audio_file: str, model_path: str, device: str = "cpu",
     return text
 
 
-def calculate_similarity(text1: str, text2: str) -> float:
-    """Calculate similarity score between two text strings."""
-
-    # Clean texts by normalizing whitespace and removing punctuation
-    def clean_text(text):
-        text = re.sub(r'[^\w\s]', '', text)  # Remove punctuation
-        text = re.sub(r'\s+', ' ', text)  # Normalize whitespace
-        return text.lower().strip()  # Convert to lowercase and strip
-
-    cleaned_text1 = clean_text(text1)
-    cleaned_text2 = clean_text(text2)
-
-    # Calculate similarity using SequenceMatcher
-    matcher = SequenceMatcher(None, cleaned_text1, cleaned_text2)
-    similarity = matcher.ratio() * 100  # Convert to percentage
-
-    return similarity
-
-
 if __name__ == "__main__":
     base_dir = Path(__file__).resolve().parent
-    audio_path = base_dir / 'media' / 'sing for the monent no hook 30s.mp3'
+    audio_path = base_dir / 'media' / 'eng_convo_30s.mp3'
 
     # Cần cd models -> git clone https://huggingface.co/guillaumekln/faster-whisper-tiny.en
     # sau đó cd thư mục tiny.en, git lfs pull để kéo model.bin về
@@ -56,22 +37,4 @@ if __name__ == "__main__":
     print("Predict: ")
     print(transcription)
 
-    # Actual lyrics
-    sing_for_the_moment = '''
-    These ideas are, nightmares to white parents
-    Whose worst fear is a child with dуed hair and who likes earrings
-    Like whatever theу saу has no bearing
-    Ɩt's so scarу in a house that allows, no swearing
-    To see him walking around with his headphones blaring
-    Alone in his own zone, cold and he don't care
-    He's a problem child, and what bothers him all comes out
-    When he talks about, his fucking dad walking out
-    Ϲause he just hates him so bad that he, blocks him out
-    Ɩf he ever saw him again he'd probablу knock him out
-    '''
-    print("Actual:", sing_for_the_moment)
-    print()
 
-    # Calculate and print similarity score
-    similarity = calculate_similarity(transcription, sing_for_the_moment)
-    print(f"Similarity Score: {similarity:.2f}%")
