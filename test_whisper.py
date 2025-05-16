@@ -5,7 +5,7 @@ from pathlib import Path
 import gc
 
 
-def transcribe_audio_optimized(audio_file, model_path, compute_type="int8"):
+def transcribe_audio(audio_file, model_path, compute_type="int8"):
 
     start_total = time.time()
     load_start = time.time()
@@ -60,7 +60,7 @@ if __name__ == "__main__":
     model_path = base_dir / 'models' / 'faster-whisper-tiny.en'
 
     print("\n--- Bắt đầu xử lý file ---")
-    transcription = transcribe_audio_optimized(
+    transcription = transcribe_audio(
         str(audio_path),
         str(model_path),
         compute_type="int8"
