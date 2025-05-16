@@ -4,7 +4,6 @@ from faster_whisper import WhisperModel
 from pathlib import Path
 import gc
 
-
 def transcribe_audio(audio_file, model_path, compute_type="int8"):
 
     start_total = time.time()
@@ -48,7 +47,6 @@ def transcribe_audio(audio_file, model_path, compute_type="int8"):
     print(f"Thời gian xử lý transcribe: {transcribe_time:.2f} giây")
     print(f"Độ dài audio: {info.duration:.2f} giây")
     print(f"Thời gian tổng (tải model + xử lý): {total_time:.2f} giây")
-    print(f"Overhead tải model: {load_time:.2f}s ({load_time / total_time * 100:.1f}% tổng thời gian)")
 
     return result.strip()
 
