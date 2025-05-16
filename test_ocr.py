@@ -1,11 +1,11 @@
 import os
 from rapidocr import RapidOCR
 
-# new config file, change recognition model to "en"
-config_path = os.path.join("configs", "config_rapid_ocr.yml")
+def get_ocr_engine():
+    config_path = os.path.join("configs", "config_rapid_ocr.yml")
+    return RapidOCR(config_path)
 
-def process_image_with_ocr(input_path, output_path=None):
-    engine = RapidOCR(config_path)
+def process_image_with_ocr(engine, input_path, output_path=None):
     result = engine(input_path)
 
     if output_path is None:
@@ -14,17 +14,16 @@ def process_image_with_ocr(input_path, output_path=None):
         output_path = os.path.join("media", f"{file_name}_rapidocr{file_ext}")
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
-
     result.vis(output_path)
 
     return result
 
-# Example usage
 if __name__ == "__main__":
     img_path = os.path.join("media", "test_ocr_eng.jpg")
     out_path = os.path.join("output", "test_ocr_rapidocr.jpg")
 
-    result = process_image_with_ocr(img_path, out_path)
+    engine = get_ocr_engine()
+    result = process_image_with_ocr(engine, img_path, out_path)
 
     print(result)
     print("----------------")
