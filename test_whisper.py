@@ -13,8 +13,7 @@ def transcribe_audio(audio_file, model_path, compute_type="int8"):
         model_path,
         device="cpu",
         compute_type=compute_type,
-        cpu_threads=os.cpu_count(),  # Sử dụng tất cả thread có sẵn
-        download_root=os.path.join(os.path.dirname(model_path), "cache")  # Cache model
+        cpu_threads=os.cpu_count()  # Sử dụng tất cả thread có sẵn
     )
 
     load_time = time.time() - load_start
